@@ -2,75 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yugo Kawai</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    section { padding: 60px 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      font-family: 'Manrope', sans-serif;
+      background-color: #f8f9fb;
+      color: #1a1a1a;
+    }
+    section, header { scroll-snap-align: start; }
+    nav {
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      z-index: 10;
+    }
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #888;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #007acc; }
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1100px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
     .profile-img {
-      max-width: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #007acc;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .text-content {
+      flex: 1;
+      min-width: 280px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    .highlight { color: #007acc; }
+    .typewriter {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      min-height: 2em;
+      color: #444;
+    }
+    .icons a {
+      margin: 0 0.5rem;
+      font-size: 1.4rem;
+      color: #007acc;
+      text-decoration: none;
+    }
+    .icons a:hover { color: #004466; }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: #007acc;
+      margin-bottom: 1rem;
+    }
+    .panels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .panel {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    .panel:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .panel h3 {
+      color: #007acc;
+      margin-bottom: 1rem;
+    }
+    .panel p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      .typewriter { font-size: 1rem; }
+      .profile-img { width: 180px; height: 180px; }
+      .panels { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Yugo Kawai</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="cv.pdf" target="_blank">CV</a></li>
-        </ul>
-      </div>
-    </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="cv.pdf" target="_blank">CV</a>
   </nav>
 
-  <header class="bg-light text-center text-lg-start py-5 mt-5">
-    <div class="container">
-      <h1 class="display-4">Welcome</h1>
-      <p class="lead">I study the formation and orbital evolution of exoplanets, particularly hot Jupiters. I am a self-proclaimed baseball maniac. I also love hitting the road with my motorcycle.</p>
+  <header>
+    <div class="intro">
+      <img id="profileImg" src="assets/img/profile1.png" alt="Profile Picture" class="profile-img" />
+      <div class="text-content">
+        <h1>Welcome to <span class="highlight">Yugo Kawai</span>'s website!</h1>
+        <div class="typewriter" id="typewriter"></div>
+        <div class="icons">
+          <a href="https://github.com/ykawai6581" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-mastodon"></i></a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section id="about" class="bg-white text-dark">
-    <div class="container">
-      <h2 class="text-center mb-4">About Me</h2>
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center">
-          <img src="assets/img/profile.png" alt="Yugo Kawai" class="profile-img img-fluid mb-3">
-        </div>
-        <div class="col-md-8">
-          <p>Hi! I am Yugo. I am a PhD student focused on the migration of exoplanets especially hot Jupiters. My work explores the role of tidal interactions in shaping hot Jupiter populations. I make observations of invidivdual systems using photometry and spectroscopy, as of the larger population using statistical methods.</p>
-        </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi! I am Yugo. I am a second year PhD student at the University of Tokyo studying the migration of exoplanets especially hot Jupiters. </p><br>
+    <p>I explore the role of tidal interactions in shaping hot Jupiter populations. I make observations of individual systems with photometry, and of the larger population with statistical methods.</p><br>
+    <p>I grew up mostly in Japan, but spent time in Singapore during secondary school and university. I speak Japanese, English and a bit of Singlish.</p><br>
+    <p>In my spare time, I am often exploring Japan with my motorcycle, watching baseball games, or playing music. I used to play in a Japanese rock band called the huckleberries. You can find the band on Spotify.</p>
+    
+  </section>
+
+  <section id="research">
+    <h2>Research Topics</h2>
+    <div class="panels">
+      <div class="panel">
+        <img src="assets/img/orbital_decay.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Orbital Decay</h3>
+        <p>Some hot Jupiters orbit too close to the host star that migration alone cannot explain their current location. I monitor the transit timings of these hot Jupiters to look for signs of orbital decay driven by tidal interactions. To do this, I am also building a custom pipeline to reduce photometric data for the MuSCAT instrument.</p>
+      </div>
+      <div class="panel">
+        <img src="assets/img/tidal_circularization.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Tidal Circularization</h3>
+        <p>On the other hand, we also expect some hot Jupiters to orbit too far from their hosts that migration due to damping of large eccentricity (high-eccentricity migration) is implausible. I study the efficiency of tidal circularization to identify hot Jupiters that instead likey arrived via disk migration. These "disk migration hot Jupiters" show interesting trends. </p>
+      </div>
+      <div class="panel">
+        <img src="assets/img/stellar_obliquity.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Stellar Obliquity</h3>
+        <p>Many hot Jupiters are discovered on misaligned orbits, meaning that their orbital axis is tiled relative to the stellar spin axis. By analyzing the effect of gravity darkening in TESS light curve, I found that hot Jupiter KELT-19Ab likely has not just retrograde but a flipped orbit. Such extreme misalignment is very rare, and may require primoridal misalignment in the disk phase.</p>
       </div>
     </div>
   </section>
 
-  <section id="research" class="bg-light text-dark">
-    <div class="container">
-      <h2 class="text-center mb-4">Research Topics</h2>
-      <ul>
-        <li><strong>Hot Jupiter Migration:</strong> Comparing disk and high-eccentricity migration using obliquity and age diagnostics.</li>
-        <li><strong>Tidal Circularization:</strong> Estimating tidal quality factors and identifying dynamically young planets.</li>
-        <li><strong>Inner Companions:</strong> Statistical search for small inner planets in hot Jupiter systems.</li>
-        <li><strong>Mass Ratio Distributions:</strong> Using hierarchical models to identify features predicted by core accretion.</li>
-      </ul>
+  <script>
+    const messages = [
+      "I'm a PhD student studying exoplanets.",
+      "I'm a baseball maniac.",
+      "I'm a motorcycle adventurer.",
+      "I'm a part-time musician."
+    ];
+    const images = [
+      "assets/img/profile1.png",
+      "assets/img/profile2.png",
+      "assets/img/profile3.png",
+      "assets/img/profile4.png"
+    ];
+    let part = 0;
+    const textEl = document.getElementById("typewriter");
+    const imgEl = document.getElementById("profileImg");
+
+    function showNext() {
+      textEl.textContent = "";
+      imgEl.style.opacity = 0;
+      setTimeout(() => {
+        imgEl.src = images[part];
+        imgEl.style.opacity = 1;
+      }, 300);
+      const current = messages[part];
+      let i = 0;
+      const typeInterval = setInterval(() => {
+        textEl.textContent = current.substring(0, i + 1);
+        i++;
+        if (i === current.length) {
+          clearInterval(typeInterval);
+          setTimeout(() => {
+            part = (part + 1) % messages.length;
+            showNext();
+          }, 2000);
+        }
+      }, 1000 / current.length);
+    }
+    window.onload = () => {
+      showNext();
+    };
+  </script>
+
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <div class="panels">
+      <div class="panel">
+        <img src="assets/img/baseball.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Baseball</h3>
+        <p>I'm a lifelong baseball fan and love catching games at the Tokyo Dome. Student discount is my best friend.</p>
+      </div>
+      <div class="panel">
+        <img src="assets/img/bike.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Motorcycle Touring</h3>
+        <p>On weekends I take my bike out for rides around Japan. Mt. Fuji is my go-to spot.</p>
+      </div>
+      <div class="panel">
+        <img src="assets/img/music.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Music</h3>
+        <p>I also love playing the guitar, ukulele and the piano. When I'm overseas, I like visiting local music stores to find unique instruments.</p>
+      </div>
     </div>
   </section>
-
-  <footer class="bg-dark text-light py-3 text-center">
-    <div class="container">
-      &copy; 2025 Yugo Kawai
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
