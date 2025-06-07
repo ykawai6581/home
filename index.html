@@ -10,6 +10,7 @@
   <meta name="google-site-verification" content="11o83XGBh_U4OZvn6CmsBBL8pI4zSeKhvJix92-qR_s" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -96,6 +97,34 @@
       color: #007acc;
       margin-bottom: 1rem;
     }
+
+   
+    .aboutme {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .aboutme > div:first-child {
+      flex: 2;
+    }
+     
+     .aboutme > div:last-child {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 300px; /* the image panel size */
+    }
+    
+    .aboutme > div:last-child img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }    
+    
     .panels {
       display: flex;
       flex-wrap: wrap;
@@ -148,23 +177,39 @@
         <div class="typewriter" id="typewriter"></div>
         <div class="icons">
           <a href="https://github.com/ykawai6581" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-mastodon"></i></a>
+          <a href="mailto:yugo6581@gmail.com"><i class="fas fa-envelope"></i></a>
+	  <a href="https://orcid.org/0000-0002-0488-6297"><i class="fab fa-orcid"></i></a>
+          <a href="https://open.spotify.com/artist/5EWgOiRmZxdcCQOHyJQmUq" target="_blank"><i class="fab fa-spotify"></i></a>
         </div>
       </div>
     </div>
   </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi! I am Yugo. I am a second year PhD student at the University of Tokyo studying the migration of exoplanets especially hot Jupiters. </p><br>
-    <p>I explore the role of tidal interactions in shaping hot Jupiter populations. I make observations of individual systems with photometry, and of the larger population with statistical methods.</p><br>
-    <p>I grew up mostly in Japan, but spent time in Singapore during secondary school and university. I speak Japanese, English and a bit of Singlish.</p><br>
-    <p>In my spare time, I am often exploring Japan with my motorcycle, watching baseball games, or playing music. I used to play in a Japanese rock band called the huckleberries. You can find the band on Spotify.</p>
-    
+            
+  <section id="about" class="bg-white text-dark py-5">
+    <div class="container-fluid">
+      <h2 class="text-center mb-4">About Me</h2>
+	<div class="aboutme">
+	  <div>
+            <p>Hi! I am Yugo. I am a second-year PhD student at the University of Tokyo studying the migration of exoplanets, especially hot Jupiters.
+            </p><br>
+            <p>
+              My work combines photometric observations with population-level statistical analysis to understand planetary migration and tidal interactions.
+            </p><br>
+            <p>
+              I grew up in Japan, but also spent time in Singapore during secondary school and university. I speak Japanese, English, and a bit of Singlish.
+            </p><br>
+            <p>
+              Outside of research, I enjoy exploring Japan with my motorcycle, watching baseball games, or playing music. I used to play in a band called the Huckleberries. You can find us on Spotify <a href="https://open.spotify.com/artist/5EWgOiRmZxdcCQOHyJQmUq" target="_blank"><i class="fab fa-spotify"></i></a>.
+            </p><br>
+	  </div>
+	  <div>
+            <img src="assets/img/telescope.png" alt="Okayama 188cm"
+                 class="img-fluid h-10 w-10" style="object-fit: cover;">
+          </div>
+       </div>
+    </div>
   </section>
-
+   
   <section id="research">
     <h2>Research Topics</h2>
     <div class="panels">
@@ -177,7 +222,9 @@
         <p>On the other hand, we also expect some hot Jupiters to orbit too far from their hosts that migration due to damping of large eccentricity (high-eccentricity migration) is implausible. I study the efficiency of tidal circularization to identify hot Jupiters that instead likey arrived via disk migration. These "disk migration hot Jupiters" show interesting trends. </p>
       </div>
       <div class="panel">
-        <img src="assets/img/stellar_obliquity.png" style="width:100%; border-radius:8px; margin-bottom:1rem;"><h3>Stellar Obliquity</h3>
+        <img src="assets/img/stellar_obliquity.png" style="width:100%; border-radius:8px; margin-bottom:1rem;">
+	<a href="https://ui.adsabs.harvard.edu/abs/2024MNRAS.528..270K/abstract" target="_blank">
+          <h3>Stellar Obliquity <img src="https://ui.adsabs.harvard.edu/favicon.ico" alt="ADS" style="width: 20px; height: 20px;"></a></h3>
         <p>Many hot Jupiters are discovered on misaligned orbits, meaning that their orbital axis is tiled relative to the stellar spin axis. By analyzing the effect of gravity darkening in TESS light curve, I found that hot Jupiter KELT-19Ab likely has not just retrograde but a flipped orbit. Such extreme misalignment is very rare, and may require primoridal misalignment in the disk phase.</p>
       </div>
     </div>
